@@ -1,0 +1,39 @@
+@use "src/scss/breakpoints";
+@use "src/scss/functions/iterations";
+@use "src/scss/mixins/text-styles";
+
+.radio {
+  $block-name: &; // #{$block-name}__element
+
+  cursor: pointer;
+
+  input {
+    position: absolute;
+    visibility: hidden;
+  }
+
+  &__fake-radio {
+    @include text-styles.input {
+      padding: 8px 15px 6px;
+      background-color: var(--back-primary);
+      border: 1px solid var(--border-light-grey);
+      border-radius: 36px;
+      transition: iterations.iterate-transition([background-color, border-color]);
+    };
+
+    @media (hover: hover) {
+      &:hover {
+        border-color: var(--border-accent);
+      }
+    }
+
+    @media screen and (min-width: breakpoints.$screen-ti) {
+      padding: 10px 15px 4px;
+    }
+
+    input:checked + & {
+      background-color: var(--back-accent-light);
+      border-color: var(--border-accent);
+    }
+  }
+}

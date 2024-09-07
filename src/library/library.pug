@@ -1,0 +1,62 @@
+extends templates/template__library.pug
+
+block variables
+  -
+    isMainPage = false
+    pageTitle = "Library page"
+    metaDescription = "description"
+    metaKeywords = "keywords"
+
+block append head
+  link(rel="stylesheet", href=path.css + "library.css")
+
+block content
+  .library__content
+    header.library__head
+      h1.library__title Библиотека блоков
+    .library__list
+      section#base.library__section
+        h2.library__subtitle base elements
+        .library__item
+          .library__descr
+            h3.library__subtitle link
+            hr.library__divider
+          .library__example
+            .library__block
+              .library__label default link
+              .library__row
+                p.library__p.
+                  Учитывая ключевые сценарии поведения, повышение #[a.link(href="#address-one") уровня] гражданского
+                  сознания предоставляет широкие возможности для системы обучения кадров,
+                  #[a.link(href="#address-two") соответствующей] насущным потребностям.
+      section#form.library__section
+        h2.library__subtitle form elements
+        .library__item
+          .library__descr
+            h3.library__subtitle button
+            hr.library__divider
+          .library__example
+            .library__block
+              .library__label default button (input)
+              .library__row
+                input.button(type="button", value="button")
+                input.button(type="button", value="disabled", disabled)
+            .library__block
+              .library__label default button
+              .library__row
+                button.button button
+                button.button(disabled) disabled
+            .library__block
+              .library__label button primary
+              .library__row
+                button.button.button--primary button
+                button.button.button--primary(disabled) disabled
+            .library__block
+              .library__label button secondary
+              .library__row
+                button.button.button--secondary button
+                button.button.button--secondary(disabled) disabled
+            .library__block
+              .library__label link as button
+              .library__row
+                a.button(href="#") link

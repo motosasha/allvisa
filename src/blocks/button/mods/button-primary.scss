@@ -1,0 +1,31 @@
+@mixin button-primary($is-hate-state-needed, $is-disabled-state-needed) {
+  &--primary {
+    // stylelint-disable
+    --button-primary-color: var(--front-invert);
+    --button-primary-background: var(--green);
+    --button-primary-background-hover: var(--green-dark);
+    --button-outline-color: var(--green);
+    // stylelint-enable
+
+    color: var(--button-primary-color);
+    background-color: var(--button-primary-background);
+    border-color: var(--button-primary-background);
+
+    @if $is-hate-state-needed {
+      @media (hover: hover) {
+        &:hover:not(:active, :disabled),
+        &:active:not(:disabled) {
+          color: var(--button-primary-color);
+          background-color: var(--button-primary-background-hover);
+          border-color: var(--button-primary-background-hover);
+        }
+      }
+    }
+
+    @if $is-disabled-state-needed {
+      &[disabled] {
+        background-color: var(--neutral-800);
+      }
+    }
+  }
+}

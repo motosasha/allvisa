@@ -1,0 +1,25 @@
+extends ../templates/template__default.pug
+
+block variables
+  -
+    isMainPage = false
+    pageTitle = "Великобритания"
+    metaDescription = "description"
+    metaKeywords = "keywords"
+
+block content
+  section.hero
+    .container
+      .hero__inner
+        .hero__block
+          h1.hero__title.hero__title--wide Виза в Великобританию<br>от 6 мес. от 30 000 рублей
+          p.hero__descr.
+            При заключении договора, мы начислим #[strong 500 баллов,] которые можно будет использовать при следующих
+            обращениях. Кешбек от #[strong 2% до 10%]
+    img.hero__ring.hero__ring--left(src= path.img + "img__ring.svg", alt="")
+    img.hero__ring.hero__ring--right(src= path.img + "img__ring.svg", alt="")
+    picture.hero__bg
+      source(srcset= path.img + "img__england--desktop.jpg", media="(min-width: 992px)")
+      img(src= path.img + "img__england--mobile.jpg", alt="")
+
+  +calculator

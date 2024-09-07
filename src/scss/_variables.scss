@@ -1,0 +1,96 @@
+@use "src/scss/breakpoints";
+@use "src/scss/mixins/text-styles";
+@use "sass:color";
+
+:root {
+  // color primitives
+  --color-black: hsl(0deg 0% 0%);
+  --color-white: hsl(0deg 0% 100%);
+
+  --neutral-000: hsl(0deg 0% 100%);
+  --neutral-050: hsl(0deg 0% 98%);
+  --neutral-100: hsl(0deg 0% 96%);
+  --neutral-200: hsl(0deg 0% 90%);
+  --neutral-300: hsl(0deg 0% 86%);
+  --neutral-400: hsl(0deg 0% 83%);
+  --neutral-500: hsl(0deg 0% 42%);
+  --neutral-600: hsl(0deg 0% 32%);
+  --neutral-700: hsl(0deg 0% 25%);
+  --neutral-800: hsl(0deg 0% 15%);
+  --neutral-900: hsl(232deg 53% 8%);
+
+  --green-light: hsl(98deg 100% 98%);
+  --green: hsl(98deg, 57%, 44%);
+  --green-dark: hsl(98deg, 57%, 34%);
+
+  --red-600: hsl(0deg 72% 51%);
+  --orange-600: hsl(36deg, 100%, 50%);
+
+  // fonts
+  --font-sans:
+    TTCommons, system-ui, BlinkMacSystemFont, "Segoe UI", "Roboto", "Ubuntu",
+    "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  --font-serif: Georgia, "Times New Roman", Times, serif;
+  --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  // base
+  --body-bg: var(--back-primary);
+  --body-color: var(--front-primary);
+  --font-base: var(--font-sans);
+  --font-size-root: 100%;
+  --font-size-base: 1rem;
+  --font-weight-base: 400;
+  --line-height-base: 1.25;
+
+  // semantic
+  --front-primary: var(--neutral-900);
+  --front-secondary: var(--neutral-700);
+  --front-tertiary: var(--neutral-500);
+  --front-invert: var(--neutral-000);
+  --front-accent: var(--green);
+  --front-error: var(--red-600);
+
+  --back-primary: var(--neutral-000);
+  --back-secondary: var(--neutral-200);
+  --back-tertiary: var(--neutral-300);
+  --back-accent: var(--green);
+  --back-accent-light: var(--green-light);
+  --back-gradient: linear-gradient(90deg, #24348b 0, #2f7d58 50%, #5eb12e 100%);
+  --back-gradient-grey: linear-gradient(180deg, #fbfbfb 0, #fff 100%);
+
+  --border-light: hsla(0deg, 0%, 100%, 0.4);
+  --border-light-grey: var(--neutral-400);
+  --border-grey: hsl(0deg, 0%, 94%);
+  --border-accent: var(--green);
+
+  // transitions
+  --transition-fast: 0.125s ease;
+  --transition-default: 0.25s ease;
+  --transition-slow: 0.5s ease;
+  --transition-slowest: 1s ease;
+
+  // appearance
+  --border-error: var(--red-600);
+  --outline-color: var(--green);
+
+  // z-index
+  --z-index-negative: -1;
+  --z-index-default: 1;
+  --z-index-hero-text: 2;
+  --z-index-header: 3;
+  --z-index-noscript: 99;
+
+  // layout
+  --container-max-width: 1760px;
+  --container-padding: 16px;
+  --header-height: 104px;
+
+  @media screen and (min-width: breakpoints.$screen-ti) {
+    --container-padding: 32px;
+  }
+
+  @media screen and (min-width: breakpoints.$screen-d) {
+    --container-padding: 80px;
+  }
+}

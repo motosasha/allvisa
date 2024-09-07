@@ -1,0 +1,26 @@
+<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="4.80005" y="4.80005" width="3.2" height="3.2" rx="1.6" fill="#10B981"/>
+  <rect x="4.80005" y="9.6001" width="3.2" height="3.2" rx="1.6" fill="#10B981"/>
+  <rect x="4.80005" y="14.4001" width="3.2" height="3.2" rx="1.6" fill="#10B981"/>
+  <rect x="4.80005" y="19.2" width="3.2" height="3.2" rx="1.6" fill="#10B981"/>
+  <rect x="4.80005" y="24" width="3.2" height="3.2" rx="1.6" fill="#10B981"/>
+  <rect x="9.6001" y="4.80005" width="3.2" height="3.2" rx="1.6" fill="currentColor"/>
+  <rect x="9.6001" y="9.6001" width="3.2" height="3.2" rx="1.6" fill="currentColor"/>
+  <rect x="9.6001" y="19.2" width="3.2" height="3.2" rx="1.6" fill="currentColor"/>
+  <rect x="9.6001" y="24" width="3.2" height="3.2" rx="1.6" fill="currentColor"/>
+  <rect x="14.4" y="4.80005" width="3.2" height="3.2" rx="1.6" fill="currentColor"/>
+  <rect x="14.4" y="9.6001" width="3.2" height="3.2" rx="1.6" fill="currentColor"/>
+  <rect x="14.4" y="14.4001" width="3.2" height="3.2" rx="1.6" fill="currentColor"/>
+  <rect x="14.4" y="24" width="3.2" height="3.2" rx="1.6" fill="currentColor"/>
+  <rect x="19.2001" y="4.80005" width="3.2" height="3.2" rx="1.6" fill="currentColor"/>
+  <rect x="19.2001" y="14.4001" width="3.2" height="3.2" rx="1.6" fill="currentColor"/>
+  <rect x="19.2001" y="19.2" width="3.2" height="3.2" rx="1.6" fill="currentColor"/>
+  <rect x="19.2001" y="24" width="3.2" height="3.2" rx="1.6" fill="currentColor"/>
+  <rect x="24" y="4.80005" width="3.2" height="3.2" rx="1.6" fill="#10B981"/>
+  <rect x="24" y="9.6001" width="3.2" height="3.2" rx="1.6" fill="#10B981"/>
+  <rect x="24" y="14.4001" width="3.2" height="3.2" rx="1.6" fill="#10B981"/>
+  <rect x="24" y="19.2" width="3.2" height="3.2" rx="1.6" fill="#10B981"/>
+  <rect x="24" y="24" width="3.2" height="3.2" rx="1.6" fill="#10B981"/>
+  <path d="M1.36047 30.4872V1.39624H6.26956V2.62351H2.70138V29.2599H6.26956V30.4872H1.36047Z" fill="currentColor"/>
+  <path d="M30.9905 1.39624V30.4872H26.0814V29.2599H29.6496V2.62351H26.0814V1.39624H30.9905Z" fill="currentColor"/>
+</svg>

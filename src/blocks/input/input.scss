@@ -1,0 +1,24 @@
+@use "src/scss/breakpoints";
+@use "src/scss/mixins/text-styles";
+
+.input {
+  $block-name: &; // #{$block-name}__element
+
+  @include text-styles.input {
+    padding: 9px 15px 5px;
+    border: 1px solid var(--border-light-grey);
+    border-radius: 20px;
+    outline: 0 solid var(--outline-color);
+    transition: border 0.25s ease-out, outline 0.25s ease-out;
+    appearance: none;
+  };
+
+  &::placeholder {
+    color: var(--front-secondary);
+  }
+
+  &--invalid {
+    border-color: var(--border-error);
+  }
+}
+

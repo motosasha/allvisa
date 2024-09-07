@@ -1,0 +1,46 @@
+//- Library page template
+
+include ../../templates/mixins.pug
+
+-
+  let isMainPage = false,
+      pageTitle = "title",
+      metaDescription = "description",
+      metaKeywords = "keywords",
+      json = locals,
+      path = pugPaths,
+      isProjectNav = includeProjectNav,
+      isProjectLibrary = buildLibrary
+
+block variables
+
+doctype html
+html(class="no-js", lang="ru")
+  include ../../templates/template__default-head.pug
+
+  body
+    noscript У вас отключен JavaScript. Это пугает.
+
+    if isProjectNav
+      include ../../service/project-nav.pug
+
+    .library
+      button.library__trigger
+        svg(viewBox="0 0 30 20", fill="none", xmlns="http://www.w3.org/2000/svg")
+          path(d="M23.0004 7H7.0004C4.98407 7 3.70982 4.79026 5.0002 3.5C6.29057 2.20973 8.00072 3 9.0004 4L21.0004 16", stroke="currentColor")
+          path(d="M7 13H23C26 13 28.5329 11.296 28 6.5C27.4671 1.70395 24 1.00001 21 4.00001L9 16", stroke="currentColor")
+      .library__header
+        +library-header
+      .library__main
+        .library__container
+          block content
+            .content-filler content-filler
+      .library__footer
+        .library__container
+          +library-footer
+
+    block templates
+
+    script(src= path.js + "bundle.js")
+
+    block scripts

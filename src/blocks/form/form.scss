@@ -1,0 +1,236 @@
+@use "src/scss/breakpoints";
+@use "src/scss/functions/iterations";
+@use "src/scss/mixins/reset-link";
+@use "src/scss/mixins/text-styles";
+
+.form {
+  $block-name: &; // #{$block-name}__element
+
+  padding: 20px;
+  background-image: var(--back-gradient-grey);
+  border: 1px solid var(--border-grey);
+  border-radius: 20px;
+
+  @media screen and (min-width: breakpoints.$screen-tl) {
+    padding: 80px;
+  }
+
+  &__header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 34px;
+
+    @media screen and (min-width: breakpoints.$screen-tl) {
+      gap: 20px;
+      width: min(100%, 675px);
+      margin-bottom: 60px;
+    }
+  }
+
+  &__point {
+    @include text-styles.form-point;
+
+    position: relative;
+    z-index: var(--z-index-default);
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    padding: 14px 10px 10px;
+    background-color: var(--back-tertiary);
+    border-radius: 50%;
+
+    @media screen and (min-width: breakpoints.$screen-tl) {
+      width: 43px;
+      height: 43px;
+      outline: 20px solid #fbfbfb;
+    }
+
+    [data-steps="5"] &,
+    [data-steps="6"] &,
+    [data-steps="1"] &:nth-child(1),
+    [data-steps="2"] &:has(~ &:nth-child(3)),
+    [data-steps="3"] &:has(~ &:nth-child(4)),
+    [data-steps="4"] &:has(~ &:nth-child(5)) {
+      color: var(--front-invert);
+      background-color: var(--back-accent);
+    }
+  }
+
+  &__bar {
+    position: absolute;
+    right: 19px;
+    left: 19px;
+    height: 4px;
+    background-color: var(--back-tertiary);
+    transition: background-image var(--transition-default);
+
+    &::before {
+      display: block;
+      width: 12.5%;
+      height: 100%;
+      background-color: var(--back-accent);
+      border-radius: 2px;
+      transition: width var(--transition-default);
+      content: "";
+
+      [data-steps="2"] & {
+        width: 37.5%;
+      }
+
+      [data-steps="3"] & {
+        width: 62.5%;
+      }
+
+      [data-steps="4"] & {
+        width: 87.5%;
+      }
+
+      [data-steps="5"] &,
+      [data-steps="6"] & {
+        width: 100%;
+      }
+    }
+  }
+
+  &__inner {
+    display: grid;
+    grid-template-areas: "section";
+
+    @media screen and (min-width: breakpoints.$screen-ti) {
+      align-content: start;
+      align-items: start;
+    }
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+
+    @media screen and (min-width: breakpoints.$screen-ti) {
+      gap: 18px;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
+
+    [data-steps="6"] & {
+      display: none;
+    }
+  }
+
+  &__section {
+    position: absolute;
+    grid-area: section;
+    transform: translateY(8px);
+    visibility: hidden;
+    opacity: 0;
+    transition: iterations.iterate-transition([opacity, transform, visibility]);
+
+    [data-steps="1"] &:nth-child(1),
+    [data-steps="2"] &:nth-child(2),
+    [data-steps="3"] &:nth-child(3),
+    [data-steps="4"] &:nth-child(4),
+    [data-steps="5"] &:nth-child(5),
+    [data-steps="6"] &:nth-child(6) {
+      position: relative;
+      transform: translateY(0);
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &__title {
+    @include text-styles.form-title {
+      margin: 0 0 24px;
+    };
+
+    @media screen and (min-width: breakpoints.$screen-tl) {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__divider {
+    height: 1px;
+    margin: 24px 0;
+    color: var(--border-light-grey);
+    background-color: var(--border-light-grey);
+    border: none;
+
+    @media screen and (min-width: breakpoints.$screen-tl) {
+      margin: 30px 0;
+    }
+
+    [data-steps="6"] & {
+      display: none;
+    }
+  }
+
+  &__button {
+    flex-grow: 1;
+
+    @media screen and (min-width: breakpoints.$screen-ti) {
+      flex-grow: 0;
+    }
+  }
+
+  &__list {
+    display: grid;
+    gap: 18px;
+
+    @media screen and (min-width: breakpoints.$screen-tl) {
+    	grid-template-columns: 1fr 1fr 1fr;
+      align-items: start;
+    }
+  }
+
+  &__field {
+    display: grid;
+    gap: 10px;
+  }
+
+  &__label {
+    @include text-styles.input;
+  }
+
+  &__small {
+    @include text-styles.form-small {
+      grid-column: 1 / -1;
+      margin-top: 6px;
+    };
+
+    a {
+      @include reset-link.reset-link;
+
+      color: var(--front-accent);
+
+      @media (hover: hover) {
+        &:hover {
+          color: var(--front-secondary);
+        }
+      }
+
+      @media screen and (min-width: breakpoints.$screen-tl) {
+      	white-space: nowrap;
+      }
+    }
+  }
+
+  &__field-error {
+    color: var(--front-error);
+  }
+
+  &__descr {
+    @include text-styles.input {
+      margin: 0;
+    };
+  }
+}

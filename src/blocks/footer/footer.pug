@@ -1,0 +1,44 @@
+//- Все примеси в этом файле должны начинаться c имени блока (footer)
+//- Упоминание имени блока в классах обязательно, без этого он не попадёт
+//- в сборку
+
+mixin footer(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +footer("some-mod")
+
+  //- список модификаторов
+  -
+    var allMods = "";
+    if (typeof (mods) !== "undefined" && mods) {
+      var modsList = mods.split(",");
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + " footer--" + modsList[i].trim();
+      }
+    }
+
+  .footer(class=allMods)&attributes(attributes)
+    .container
+      .footer__inner
+        .footer__logo
+          +logo
+        .footer__cols
+          .footer__copy
+            .footer__line ООО «ГК Бизнес Обеспечение»
+            .footer__line ИНН 7709995951
+            .footer__line ОГРН 1177746337922
+            .footer__line КПП 770901001
+            .footer__line © 2017 - 2024г. Визовый центр ALLVISA
+          .footer__info
+            address.footer__address Адрес: Москва, ДЦ «Китай-город», Лубянский проезд, 27/1c1, офис 436
+            a.footer__policy(href="#") Политика конфиденциальности
+          .footer__actions
+            .footer__action
+              .footer__label Отдел по работе с клиентами
+              a.footer__link(href="tel:88004444140") 8 (800) 444-41-40
+            .footer__action
+              .footer__label Email
+              a.footer__link(href="mailto:info@allvisa.center") info@allvisa.center
+        block

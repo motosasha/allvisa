@@ -1,0 +1,76 @@
+@use "src/scss/breakpoints";
+@use "src/scss/mixins/reset-button";
+@use "src/library/scss/mixins/library-text-styles";
+
+.library-header {
+  $block-name: &; // #{$block-name}__element
+
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--lib-back-secondary);
+  border-radius: 24px 48px 8px 24px;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: min(10vh, 80px);
+    height: 100%;
+    padding: 40px 32px 0;
+
+    @media screen and (min-width: breakpoints.$screen-tl) {
+      gap: min(15vh, 104px);
+    }
+  }
+
+  &__top {
+    display: grid;
+    gap: 16px;
+  }
+
+  &__logo {
+    @include reset-button.reset-button {
+      cursor: pointer;
+    };
+
+    width: 144px;
+    height: 32px;
+    outline-width: 0;
+    outline-color: var(--lib-link-color-active);
+    transition: opacity var(--transition-default), outline var(--transition-default);
+
+    @media (hover: hover) {
+      &:hover {
+        opacity: 0.7;
+      }
+
+      &:focus-visible {
+        outline-width: 4px;
+        outline-style: double;
+        outline-offset: 4px;
+      }
+    }
+  }
+
+  &__divider {
+    height: 1px;
+    box-shadow: 0 1px 0 0 var(--lib-border-primary);
+  }
+
+  &__descr {
+    color: var(--lib-front-secondary);
+
+    strong {
+      color: var(--lib-front-primary);
+      font-weight: 700;
+    }
+  }
+
+  &__bottom {
+    height: calc(100% - (104px + min(10vh, 80px)));
+    margin: 0 -32px;
+
+    @media screen and (min-width: breakpoints.$screen-tl) {
+      height: calc(100% - (104px + min(15vh, 104px)));
+    }
+  }
+}

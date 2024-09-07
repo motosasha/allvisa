@@ -1,0 +1,7 @@
+@use "src/scss/breakpoints";
+@use "src/library/scss/mixins/library-text-styles";
+
+body {
+  color: var(--lib-body-color);
+  background-color: var(--lib-body-bg);
+}

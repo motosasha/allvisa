@@ -1,0 +1,5 @@
+@use "src/scss/mixins/font-face";
+@include font-face.ff("TTCommons", "TTCommons-Regular");
+@include font-face.ff("TTCommons", "TTCommons-Medium", 500);
+@include font-face.ff("TTCommons", "TTCommons-DemiBold", 600);
+@include font-face.ff("TTCommons", "TTCommons-Bold", 700);

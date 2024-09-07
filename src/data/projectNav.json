@@ -1,0 +1,74 @@
+{
+  "section": [
+    {
+      "title": "Страницы проекта",
+      "pages": [
+        {
+          "title": "Russia",
+          "description": "Россия",
+          "href": "index"
+        },
+        {
+          "title": "China",
+          "description": "Китай",
+          "href": "china"
+        },
+        {
+          "title": "Spain",
+          "description": "Испания",
+          "href": "spain"
+        },
+        {
+          "title": "Italy",
+          "description": "Италия",
+          "href": "italy"
+        },
+        {
+          "title": "USA",
+          "description": "США",
+          "href": "usa"
+        },
+        {
+          "title": "France",
+          "description": "Франция",
+          "href": "france"
+        },
+        {
+          "title": "Schengen",
+          "description": "Шенген",
+          "href": "schengen"
+        },
+        {
+          "title": "England",
+          "description": "Великобритания",
+          "href": "england"
+        },
+        {
+          "title": "Switzerland",
+          "description": "Швейцария",
+          "href": "switzerland"
+        },
+        {
+          "title": "Australia",
+          "description": "Австралия",
+          "href": "australia"
+        },
+        {
+          "title": "Zeeland",
+          "description": "Зландия",
+          "href": "zeeland"
+        },
+        {
+          "title": "Hungary",
+          "description": "Венгрия",
+          "href": "hungary"
+        },
+        {
+          "title": "Cyprus",
+          "description": "Кипр",
+          "href": "cyprus"
+        }
+      ]
+    }
+  ]
+}

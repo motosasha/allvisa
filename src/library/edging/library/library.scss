@@ -1,0 +1,219 @@
+@use "src/scss/breakpoints";
+@use "src/scss/mixins/reset-button";
+@use "src/library/scss/mixins/library-text-styles";
+
+.library {
+  $block-name: &; // #{$block-name}__element
+
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  min-height: calc(var(--vh, 1vh) * 100);
+
+  @media screen and (min-width: breakpoints.$screen-tl) {
+    padding: 0 24px 0 304px;
+  }
+
+  &__header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 294px;
+    height: 100vh;
+    padding: 8px 0 8px 8px;
+    transform: translateX(-100%);
+    transition: transform var(--transition-default);
+
+    [data-state="lib-nav-open"] & {
+      transform: translateX(0);
+    }
+
+    @media screen and (min-width: breakpoints.$screen-tl) {
+      transform: translateX(0);
+    }
+  }
+
+  &__main {
+    display: grid;
+    flex: 1 0 auto;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 20px;
+    padding: 0 16px;
+
+    @media screen and (min-width: breakpoints.$screen-t) {
+      padding: 0 32px;
+    }
+
+    @media screen and (min-width: breakpoints.$screen-tl) {
+      padding: 0 10px;
+    }
+  }
+
+  &__container {
+    grid-column: 1 / -1;
+    width: min(100%, 1100px);
+    margin: 0 auto;
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      grid-column: 2 / 10;
+    }
+  }
+
+  &__head {
+    margin-bottom: 80px;
+    padding: 24px 0 15px;
+    border-bottom: 1px solid var(--lib-border-primary);
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      padding: 104px 0 31px;
+    }
+  }
+
+  &__title {
+    @include library-text-styles.lib-heading-1;
+
+    margin: 0;
+  }
+
+  &__list {
+    display: grid;
+    gap: 48px;
+  }
+
+  &__section {
+    display: grid;
+    gap: 24px;
+    scroll-margin-top: 48px;
+  }
+
+  &__subtitle {
+    @include library-text-styles.lib-heading-2;
+
+    margin: 0;
+    color: var(--lib-front-secondary);
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 24px 24px 24px 40px;
+    background-color: var(--lib-back-secondary);
+    border-radius: 24px;
+  }
+
+  //&__descr {}
+
+  &__example {
+    display: grid;
+    gap: 16px;
+    padding: 32px 48px;
+    background-color: var(--lib-back-primary);
+    border-radius: 24px;
+  }
+
+  &__divider {
+    height: 1px;
+    margin: 16px 0;
+    color: var(--lib-border-primary);
+    background-color: var(--lib-border-primary);
+    border: none;
+  }
+
+  &__block {
+    display: grid;
+    gap: 8px;
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+  }
+
+  &__label {
+    @include library-text-styles.lib-links-title;
+
+    color: var(--lib-front-secondary);
+  }
+
+  &__p {
+    margin: 0;
+  }
+
+  &__footer {
+    display: grid;
+    flex: 0 0 auto;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+    padding: 0 16px;
+
+    @media screen and (min-width: breakpoints.$screen-t) {
+      padding: 0 32px;
+    }
+
+    @media screen and (min-width: breakpoints.$screen-tl) {
+      padding: 0 10px;
+    }
+  }
+
+  &__trigger {
+    @include reset-button.reset-button(flex);
+
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    z-index: var(--lib-z-index-trigger);
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    background-color: var(--lib-back-tertiary);
+    border-radius: 50%;
+
+    @media screen and (min-width: breakpoints.$screen-t) {
+      right: 32px;
+    }
+
+    @media screen and (min-width: breakpoints.$screen-tl) {
+      display: none;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--lib-back-secondary);
+      }
+    }
+
+    svg {
+      width: 42px;
+      height: 28px;
+      pointer-events: none;
+    }
+
+    path {
+      color: var(--lib-front-primary);
+      transition:
+        stroke-dasharray 400ms,
+        stroke-dashoffset 400ms;
+      stroke-width: 1px;
+
+      &:nth-child(1) {
+        stroke-dasharray: 16 27;
+
+        [data-state="lib-nav-open"] & {
+          stroke-dashoffset: -26px;
+        }
+      }
+
+      &:nth-child(2) { // stylelint-disable-line
+        stroke-dasharray: 16 37;
+
+        [data-state="lib-nav-open"] & {
+          stroke-dashoffset: -36px;
+        }
+      }
+    }
+  }
+}

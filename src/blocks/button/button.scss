@@ -1,0 +1,124 @@
+@use "src/scss/breakpoints";
+@use "src/scss/functions/iterations";
+@use "src/scss/mixins/focus";
+@use "src/scss/mixins/reset-button";
+@use "src/scss/mixins/text-styles";
+@use "mods/button-primary";
+@use "mods/button-secondary";
+
+// settings
+// =============================================================================
+
+// states
+$is-hate-state-needed: true;
+$is-focus-state-needed: true;
+$is-disabled-state-needed: true;
+
+// mods
+$is-mods-needed: true;
+
+// transition
+$is-transition-needed: true;
+$transition-properties: background, border, color, outline, scale;
+
+// others
+$is-cursor-pointer-needed: false; // don't make it true, please!
+
+// appearance
+:root {
+  --button-min-width: 96px;
+  --button-display: inline-block; // check display property for link variant below "@at-root a#{&}"
+  --button-padding: 16px 11px 14px;
+  --button-line-height: 1;
+  --button-border-radius: 25px;
+  --button-outline-width: 4px;
+  --button-state-active-scale: 0.92;
+  --button-color-active: var(--front-invert);
+  --button-color-disabled: var(--green);
+  --button-border-color: var(--green);
+  --button-border-hover-color: var(--green-dark);
+  --button-border-active-color: var(--green);
+  --button-border-disable-color: var(--green);
+  --button-border-style: solid;
+  --button-border-width: 1px;
+  --button-outline-color: var(--emerald-500);
+}
+
+// =============================================================================
+
+.button {
+  $block-name: &; // #{$block-name}__element
+
+  @include reset-button.reset-button(var(--button-display)) {
+    min-width: var(--button-min-width);
+    padding: var(--button-padding);
+    line-height: var(--button-line-height);
+    text-decoration: none;
+    border: var(--button-border-width) var(--button-border-style) var(--button-border-color);
+    border-radius: var(--button-border-radius);
+
+    @if $is-cursor-pointer-needed {
+      cursor: pointer;
+    }
+
+    @if $is-focus-state-needed {
+      outline-color: var(--button-outline-color);
+    }
+
+    @if $is-transition-needed {
+      transition: iterations.iterate-transition($transition-properties);
+    }
+
+    // stylelint-disable
+    @include text-styles.button-title;
+    // stylelint-enable
+
+    @if $is-hate-state-needed {
+      @media (hover: hover) {
+        &:hover:not(:active, :disabled) {
+          border-color: var(--button-border-hover-color);
+        }
+      }
+
+      &:active:not(:disabled) {
+        color: var(--button-color-active);
+        border-color: var(--button-border-active-color);
+        scale: var(--button-state-active-scale);
+      }
+    }
+
+    @if $is-focus-state-needed {
+      @include focus.focus-set-default(var(--button-outline-width));
+    }
+
+    @if $is-disabled-state-needed {
+      &[disabled] {
+        color: var(--button-color-disabled);
+        border-color: var(--button-border-disable-color);
+        cursor: not-allowed;
+        opacity: 0.4;
+      }
+    }
+
+    @at-root a#{&} {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+  };
+
+  @media screen and (min-width: breakpoints.$screen-ti) {
+    --button-min-width: 160px;
+    --button-padding: 16px 30px 14px;
+    --button-border-radius: 30px;
+  }
+
+  &[hidden] {
+    display: none;
+  }
+
+  @if $is-mods-needed {
+    @include button-primary.button-primary($is-hate-state-needed, $is-disabled-state-needed);
+    @include button-secondary.button-secondary($is-hate-state-needed);
+  }
+}

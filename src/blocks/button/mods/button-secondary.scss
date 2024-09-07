@@ -1,0 +1,22 @@
+@mixin button-secondary($is-hate-state-needed) {
+  &--secondary {
+    // stylelint-disable
+    --button-color-active: var(--green);
+    --button-secondary-color: var(--green);
+    --button-secondary-color-hover: var(--green-dark);
+    --button-secondary-border-hover: var(--green-dark);
+    // stylelint-enable
+
+    color: var(--button-secondary-color);
+
+    @if $is-hate-state-needed {
+      @media (hover: hover) {
+        &:hover:not(:active, :disabled),
+        &:active:not(:disabled) {
+          color: var(--button-secondary-color-hover);
+          border-color: var(--button-secondary-border-hover);
+        }
+      }
+    }
+  }
+}

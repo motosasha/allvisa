@@ -1,0 +1,68 @@
+@use "src/scss/breakpoints";
+@use "src/scss/mixins/text-styles";
+@use "src/scss/functions/iterations";
+
+.burger {
+  $block-name: &; // #{$block-name}__element
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  pointer-events: none;
+  aspect-ratio: 1 / 1;
+
+  &__path,
+  &__path::before,
+  &__path::after {
+    width: 26px;
+    height: 2px;
+    background-color: var(--front-invert);
+    transition: background-color var(--transition-default);
+  }
+
+  &__path {
+    position: relative;
+
+    &::after {
+      bottom: -8px;
+    }
+
+    &::before {
+      top: -8px;
+    }
+
+    &::before,
+    &::after {
+      $transition-properties: ("rotate": 0.25s ease, "top": 0.25s ease 0.25s, "bottom": 0.25s ease 0.25s);
+
+      position: absolute;
+      left: 0;
+      transform-origin: center;
+      transition: iterations.iterate-transition-every($transition-properties);
+      content: "";
+
+      [data-state="open-nav"] & {
+        $transition-properties: ("rotate": 0.25s ease 0.25s, "top": 0.25s ease, "bottom": 0.25s ease);
+
+        transition: iterations.iterate-transition-every($transition-properties);
+      }
+    }
+
+    [data-state="open-nav"] & {
+      background-color: transparent;
+
+      &::before {
+        top: 0;
+        rotate: 45deg;
+      }
+
+      &::after {
+        bottom: 0;
+        rotate: -45deg;
+      }
+    }
+  }
+}

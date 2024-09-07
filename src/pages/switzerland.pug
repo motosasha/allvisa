@@ -1,0 +1,22 @@
+extends ../templates/template__default.pug
+
+block variables
+  -
+    isMainPage = false
+    pageTitle = "Швейцария"
+    metaDescription = "description"
+    metaKeywords = "keywords"
+
+block content
+  section.hero
+    .container
+      .hero__inner
+        .hero__block
+          h1.hero__title.hero__title--wide Виза в Швейцарию<br>от 1 дня<br>от 15 000 рублей
+    img.hero__ring.hero__ring--left(src= path.img + "img__ring.svg", alt="")
+    img.hero__ring.hero__ring--right(src= path.img + "img__ring.svg", alt="")
+    picture.hero__bg
+      source(srcset= path.img + "img__switzerland--desktop.jpg", media="(min-width: 992px)")
+      img(src= path.img + "img__switzerland--mobile.jpg", alt="")
+
+  +calculator

@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=3, minimum-scale=0.1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="date=no">
+    <meta name="format-detection" content="address=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="google" content="notranslate">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" sizes="32x32" href="./img/favicon/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="./img/favicon/favicon.svg">
+    <link rel="apple-touch-icon" href="./img/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="./img/favicon/site.webmanifest">
+    <meta name="theme-color" content="#000000">
+    <title>Китай</title>
+    <meta name="description" content="description">
+    <meta name="keywords" content="keywords">
+    <link rel="stylesheet" href="./css/style.css"><script>document.documentElement.className=document.documentElement.className.replace("no-js","js");let vh=.01*window.innerHeight;document.documentElement.style.setProperty("--vh",vh+"px"),window.addEventListener("resize",()=>{let e=.01*window.innerHeight;document.documentElement.style.setProperty("--vh",e+"px")});</script>
+  </head>
+  <body><noscript>У вас отключен JavaScript. Это пугает.</noscript>
+    <div class="project-nav"><!-- delete this block if production--><!-- !?--><!-- для исключения навигации из итоговой сборки в конфигурационном--><!-- файле ./gulp/config.js поставьте includeProjectNav в значение false-->
+      <style>
+        :root {
+          --elem-shift-width: 240px;
+
+          --chrome-100: hsl(0 0% 96%);
+          --chrome-200: hsl(0 0% 90%);
+          --chrome-300: hsl(0 0% 83%);
+          --chrome-400: hsl(0 0% 64%);
+          --chrome-500: hsl(0 0% 45%);
+          --chrome-600: hsl(0 0% 32%);
+          --chrome-700: hsl(0 0% 25%);
+          --chrome-800: hsl(0 0% 15%);
+          --chrome-900: hsl(0 0% 9%);
+
+          --sky-200: hsl(201 94% 86%);
+          --sky-400: hsl(198 93% 60%);
+          --sky-600: hsl(200 98% 39%);
+          --sky-700: hsl(201 96% 32%);
+
+          @media (prefers-color-scheme: light) {
+            & {
+              --main-bg-color: var(--chrome-100);
+              --main-border-color: var(--chrome-200);
+
+              --section-title-color: var(--chrome-400);
+              --section-title-border-color: var(--sky-400);
+              --section-title-border-top-color: var(--chrome-200);
+
+              --link-title-color: var(--sky-700);
+              --link-description-color: var(--chrome-500);
+              --link-description-color-hover: var(--chrome-700);
+              --link-bg-hover: var(--chrome-200);
+
+              --button-bg-color: var(--sky-200);
+              --button-title-color: var(--sky-700);
+
+              --icon-stroke-color: var(--link-description-color);
+              --icon-stroke-color-hover: var(--chrome-700);
+            }
+          }
+
+          @media (prefers-color-scheme: dark) {
+            & {
+              --main-bg-color: var(--chrome-900);
+              --main-border-color: var(--chrome-800);
+
+              --section-title-color: var(--chrome-600);
+              --section-title-border-color: var(--sky-700);
+              --section-title-border-top-color: var(--chrome-800);
+
+              --link-title-color: var(--sky-400);
+              --link-description-color: var(--chrome-500);
+              --link-description-color-hover: var(--chrome-300);
+              --link-bg-hover: var(--chrome-800);
+
+              --button-bg-color: var(--sky-600);
+              --button-title-color: var(--sky-200);
+
+              --icon-stroke-color: var(--link-description-color);
+              --icon-stroke-color-hover: var(--chrome-100);
+            }
+          }
+        }
+
+        .project-nav {
+          position: fixed;
+          top: 50%;
+          left: 0;
+          z-index: 999999;
+          width: 0;
+          transform: translateY(-50%);
+        }
+
+        .project-nav__nav {
+          width: var(--elem-shift-width);
+          overflow: hidden;
+          overflow-y: auto;
+          max-height: 75vh;
+          height: 100%;
+          border: 1px solid var(--main-border-color);
+          border-left: none;
+          border-radius: 0 8px 8px 0;
+          transform: translateX(calc(var(--elem-shift-width) * -1));
+          transition: transform 0.2s;
+        }
+
+        .project-nav__list {
+          margin: 0;
+          padding: 4px;
+          background-color: var(--main-bg-color);
+        }
+
+        .project-nav__list-title {
+          padding: 15px 0 8px 12px;
+          font-size: 10px;
+          line-height: 1.6;
+          text-transform: uppercase;
+          color: var(--section-title-color);
+        }
+
+        .project-nav__list-title::after {
+          display: block;
+          margin: 8px -4px 0;
+          width: 100%;
+          height: 1px;
+          background-color: var(--section-title-border-color);
+          content: "";
+        }
+
+        .project-nav__list-item {
+          display: grid;
+          grid-template-columns: auto 48px;
+          gap: 4px;
+          list-style: none;
+        }
+
+        .project-nav__list-item::before {
+          content: none;
+        }
+
+        .project-nav__list-item+.project-nav__list-title {
+          margin-top: 8px;
+          padding: 19px 0 8px 12px;
+          border-top: 1px solid var(--section-title-border-top-color);
+        }
+
+        .project-nav__link {
+          display: grid;
+          gap: 6px;
+          padding: 8px 12px;
+          background-color: transparent;
+          border-radius: 4px;
+          text-decoration: none;
+          transition: background-color 0.2s;
+        }
+
+        .project-nav__link:hover {
+          background-color: var(--link-bg-hover);
+        }
+
+        .project-nav__link+.project-nav__link {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 16px;
+        }
+
+        .project-nav__link svg {
+          display: block;
+          color: var(--icon-stroke-color);
+          transition: color 0.2s;
+        }
+
+        .project-nav__link:hover svg {
+          color: var(--icon-stroke-color-hover);
+        }
+
+        .project-nav__title {
+          font-size: 14px;
+          line-height: 1.14286;
+          color: var(--link-title-color);
+        }
+
+        .project-nav__descr {
+          font-size: 10px;
+          line-height: 1.2;
+          color: var(--link-description-color);
+          transition: color 0.2s;
+        }
+
+        .project-nav__link:hover .project-nav__descr {
+          color: var(--link-description-color-hover);
+        }
+
+        .project-nav__trigger {
+          position: fixed;
+          bottom: 9px;
+          z-index: 999999;
+          padding: 10px 8px;
+          font-size: 16px;
+          text-align: left;
+          text-transform: uppercase;
+          color: var(--button-title-color);
+          background-color: var(--button-bg-color);
+          border: none;
+          border-radius: 0 8px 8px 0;
+          outline: none;
+          transition: all .3s;
+          opacity: 0.2;
+        }
+
+        .project-nav__trigger:hover {
+          opacity: 1;
+          cursor: pointer;
+        }
+
+        .project-nav[data-state="project-nav-open"] .project-nav__nav {
+          transform: translateX(0);
+        }
+
+        .project-nav[data-state="project-nav-open"] .project-nav__trigger {
+          transform: translateX(var(--elem-shift-width));
+          opacity: 1;
+        }
+      </style>
+      <nav class="project-nav__nav" role="nav">
+        <ul class="project-nav__list">
+          <li class="project-nav__list-title">Страницы проекта</li>
+          <li class="project-nav__list-item"><a class="project-nav__link" href="index.html">
+              <div class="project-nav__title">Russia</div>
+              <div class="project-nav__descr">Россия</div>
+            </a><a class="project-nav__link" href="index.html" target="_blanc" title="Open in new tab"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.6667 6.00001V3.33334H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M8.66666 7.33334L12.6667 3.33334" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M13.3333 8.66666V9.99999C13.3333 11.8409 11.8409 13.3333 9.99999 13.3333H5.99999C4.15904 13.3333 2.66666 11.8409 2.66666 9.99999V5.99999C2.66666 4.15904 4.15904 2.66666 5.99999 2.66666H7.33332" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg></a></li>
+          <li class="project-nav__list-item"><a class="project-nav__link" href="china.html">
+              <div class="project-nav__title">China</div>
+              <div class="project-nav__descr">Китай</div>
+            </a><a class="project-nav__link" href="china.html" target="_blanc" title="Open in new tab"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.6667 6.00001V3.33334H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M8.66666 7.33334L12.6667 3.33334" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M13.3333 8.66666V9.99999C13.3333 11.8409 11.8409 13.3333 9.99999 13.3333H5.99999C4.15904 13.3333 2.66666 11.8409 2.66666 9.99999V5.99999C2.66666 4.15904 4.15904 2.66666 5.99999 2.66666H7.33332" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg></a></li>
+          <li class="project-nav__list-item"><a class="project-nav__link" href="spain.html">
+              <div class="project-nav__title">Spain</div>
+              <div class="project-nav__descr">Испания</div>
+            </a><a class="project-nav__link" href="spain.html" target="_blanc" title="Open in new tab"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.6667 6.00001V3.33334H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M8.66666 7.33334L12.6667 3.33334" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M13.3333 8.66666V9.99999C13.3333 11.8409 11.8409 13.3333 9.99999 13.3333H5.99999C4.15904 13.3333 2.66666 11.8409 2.66666 9.99999V5.99999C2.66666 4.15904 4.15904 2.66666 5.99999 2.66666H7.33332" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg></a></li>
+          <li class="project-nav__list-item"><a class="project-nav__link" href="italy.html">
+              <div class="project-nav__title">Italy</div>
+              <div class="project-nav__descr">Италия</div>
+            </a><a class="project-nav__link" href="italy.html" target="_blanc" title="Open in new tab"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.6667 6.00001V3.33334H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M8.66666 7.33334L12.6667 3.33334" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M13.3333 8.66666V9.99999C13.3333 11.8409 11.8409 13.3333 9.99999 13.3333H5.99999C4.15904 13.3333 2.66666 11.8409 2.66666 9.99999V5.99999C2.66666 4.15904 4.15904 2.66666 5.99999 2.66666H7.33332" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg></a></li>
+          <li class="project-nav__list-item"><a class="project-nav__link" href="usa.html">
+              <div class="project-nav__title">USA</div>
+              <div class="project-nav__descr">США</div>
+            </a><a class="project-nav__link" href="usa.html" target="_blanc" title="Open in new tab"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.6667 6.00001V3.33334H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M8.66666 7.33334L12.6667 3.33334" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M13.3333 8.66666V9.99999C13.3333 11.8409 11.8409 13.3333 9.99999 13.3333H5.99999C4.15904 13.3333 2.66666 11.8409 2.66666 9.99999V5.99999C2.66666 4.15904 4.15904 2.66666 5.99999 2.66666H7.33332" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg></a></li>
+          <li class="project-nav__list-item"><a class="project-nav__link" href="france.html">
+              <div class="project-nav__title">France</div>
+              <div class="project-nav__descr">Франция</div>
+            </a><a class="project-nav__link" href="france.html" target="_blanc" title="Open in new tab"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.6667 6.00001V3.33334H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M8.66666 7.33334L12.6667 3.33334" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M13.3333 8.66666V9.99999C13.3333 11.8409 11.8409 13.3333 9.99999 13.3333H5.99999C4.15904 13.3333 2.66666 11.8409 2.66666 9.99999V5.99999C2.66666 4.15904 4.15904 2.66666 5.99999 2.66666H7.33332" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg></a></li>
+          <li class="project-nav__list-item"><a class="project-nav__link" href="schengen.html">
+              <div class="project-nav__title">Schengen</div>
+              <div class="project-nav__descr">Шенген</div>
+            </a><a class="project-nav__link" href="schengen.html" target="_blanc" title="Open in new tab"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.6667 6.00001V3.33334H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M8.66666 7.33334L12.6667 3.33334" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M13.3333 8.66666V9.99999C13.3333 11.8409 11.8409 13.3333 9.99999 13.3333H5.99999C4.15904 13.3333 2.66666 11.8409 2.66666 9.99999V5.99999C2.66666 4.15904 4.15904 2.66666 5.99999 2.66666H7.33332" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg></a></li>
+          <li class="project-nav__list-item"><a class="project-nav__link" href="england.html">
+              <div class="project-nav__title">England</div>
+              <div class="project-nav__descr">Великобритания</div>
+            </a><a class="project-nav__link" href="england.html" target="_blanc" title="Open in new tab"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.6667 6.00001V3.33334H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M8.66666 7.33334L12.6667 3.33334" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M13.3333 8.66666V9.99999C13.3333 11.8409 11.8409 13.3333 9.99999 13.3333H5.99999C4.15904 13.3333 2.66666 11.8409 2.66666 9.99999V5.99999C2.66666 4.15904 4.15904 2.66666 5.99999 2.66666H7.33332" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg></a></li>
+          <li class="project-nav__list-item"><a class="project-nav__link" href="switzerland.html">
+              <div class="project-nav__title">Switzerland</div>
+              <div class="project-nav__descr">Швейцария</div>
+            </a><a class="project-nav__link" href="switzerland.html" target="_blanc" title="Open in new tab"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.6667 6.00001V3.33334H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M8.66666 7.33334L12.6667 3.33334" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M13.3333 8.66666V9.99999C13.3333 11.8409 11.8409 13.3333 9.99999 13.3333H5.99999C4.15904 13.3333 2.66666 11.8409 2.66666 9.99999V5.99999C2.66666 4.15904 4.15904 2.66666 5.99999 2.66666H7.33332" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg></a></li>
+          <li class="project-nav__list-item"><a class="project-nav__link" href="australia.html">
+              <div class="project-nav__title">Australia</div>
+              <div class="project-nav__descr">Австралия</div>
+            </a><a class="project-nav__link" href="australia.html" target="_blanc" title="Open in new tab"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.6667 6.00001V3.33334H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M8.66666 7.33334L12.6667 3.33334" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M13.3333 8.66666V9.99999C13.3333 11.8409 11.8409 13.3333 9.99999 13.3333H5.99999C4.15904 13.3333 2.66666 11.8409 2.66666 9.99999V5.99999C2.66666 4.15904 4.15904 2.66666 5.99999 2.66666H7.33332" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg></a></li>
+          <li class="project-nav__list-item"><a class="project-nav__link" href="zeeland.html">
+              <div class="project-nav__title">Zeeland</div>
+              <div class="project-nav__descr">Зландия</div>
+            </a><a class="project-nav__link" href="zeeland.html" target="_blanc" title="Open in new tab"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.6667 6.00001V3.33334H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M8.66666 7.33334L12.6667 3.33334" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M13.3333 8.66666V9.99999C13.3333 11.8409 11.8409 13.3333 9.99999 13.3333H5.99999C4.15904 13.3333 2.66666 11.8409 2.66666 9.99999V5.99999C2.66666 4.15904 4.15904 2.66666 5.99999 2.66666H7.33332" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg></a></li>
+          <li class="project-nav__list-item"><a class="project-nav__link" href="hungary.html">
+              <div class="project-nav__title">Hungary</div>
+              <div class="project-nav__descr">Венгрия</div>
+            </a><a class="project-nav__link" href="hungary.html" target="_blanc" title="Open in new tab"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.6667 6.00001V3.33334H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M8.66666 7.33334L12.6667 3.33334" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M13.3333 8.66666V9.99999C13.3333 11.8409 11.8409 13.3333 9.99999 13.3333H5.99999C4.15904 13.3333 2.66666 11.8409 2.66666 9.99999V5.99999C2.66666 4.15904 4.15904 2.66666 5.99999 2.66666H7.33332" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg></a></li>
+          <li class="project-nav__list-item"><a class="project-nav__link" href="cyprus.html">
+              <div class="project-nav__title">Cyprus</div>
+              <div class="project-nav__descr">Кипр</div>
+            </a><a class="project-nav__link" href="cyprus.html" target="_blanc" title="Open in new tab"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.6667 6.00001V3.33334H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M8.66666 7.33334L12.6667 3.33334" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M13.3333 8.66666V9.99999C13.3333 11.8409 11.8409 13.3333 9.99999 13.3333H5.99999C4.15904 13.3333 2.66666 11.8409 2.66666 9.99999V5.99999C2.66666 4.15904 4.15904 2.66666 5.99999 2.66666H7.33332" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg></a></li>
+        </ul>
+      </nav><button class="project-nav__trigger" title="Pages list">📄</button><script>const projectNav = document.querySelector(".project-nav");
+const projectNavButton = projectNav.querySelector(".project-nav__trigger");
+
+document.body.addEventListener("click", (e) => {
+  if (e.target === projectNavButton) {
+    projectNav.dataset.state === "project-nav-open"
+            ? (projectNav.dataset.state = "")
+            : (projectNav.dataset.state = "project-nav-open");
+  } else if (!projectNav.contains(e.target) && projectNav.dataset.state === "project-nav-open") {
+    projectNav.dataset.state = "";
+  }
+})
+</script><!-- delete this block if production-->
+    </div>
+    <div class="page">
+      <div class="page__header">
+        <div class="header">
+          <div class="container">
+            <div class="header__inner"><button class="header__logo">
+                <div class="logo"><svg class="logo__image">
+                    <use href="./img/svgSprite.svg?v=1725704132849#logo__allvisa"></use>
+                  </svg></div>
+              </button>
+              <div class="header__action"><a class="header__phone" href="tel:88004444140">8 (800) 444-41-40</a><a class="header__callback" href="#">обратный звонок</a></div><button class="header__burger">
+                <div class="burger">
+                  <div class="burger__path"></div>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="page__main">
+        <section class="hero">
+          <div class="container">
+            <div class="hero__inner">
+              <div class="hero__block">
+                <h1 class="hero__title hero__title--china">Аккредитованный визовый центр Китая.<br>Ежедневная подача от 10 000 рублей</h1>
+                <p class="hero__descr">При заключении договора, мы начислим <strong>500 баллов,</strong> которые можно будет использовать при следующих
+                  обращениях. Кешбек от <strong>2% до 10%</strong></p>
+              </div>
+            </div>
+          </div><img class="hero__ring hero__ring--left" src="./img/img__ring.svg" alt=""><img class="hero__ring hero__ring--right" src="./img/img__ring.svg" alt="">
+          <picture class="hero__bg">
+            <source srcset="./img/img__china--desktop.jpg" media="(min-width: 992px)"><img src="./img/img__china--mobile.jpg" alt="">
+          </picture>
+        </section>
+        <section class="calculator">
+          <div class="container">
+            <div class="calculator__inner">
+              <h2 class="calculator__title">Рассчитайте стоимость и максимальную длительность вашей визы</h2>
+              <form class="form calculator__form" action="https://jsonplaceholder.typicode.com/todos/" id="calculatorForm" data-steps="1">
+                <div class="form__header">
+                  <div class="form__point" data-state="active">1</div>
+                  <div class="form__point">2</div>
+                  <div class="form__point">3</div>
+                  <div class="form__point">4</div>
+                  <div class="form__point">5</div>
+                  <div class="form__bar"></div>
+                </div>
+                <div class="form__inner">
+                  <div class="form__section" data-step="1">
+                    <h2 class="form__title">Выберите цель:</h2>
+                    <div class="form__row"><label class="radio"><input type="radio" name="target" value="Туризм" checked="checked" />
+                        <div class="radio__fake-radio">Туризм</div>
+                      </label><label class="radio"><input type="radio" name="target" value="Обучение" />
+                        <div class="radio__fake-radio">Обучение</div>
+                      </label><label class="radio"><input type="radio" name="target" value="Бизнес" />
+                        <div class="radio__fake-radio">Бизнес</div>
+                      </label><label class="radio"><input type="radio" name="target" value="Медицина" />
+                        <div class="radio__fake-radio">Медицина</div>
+                      </label></div>
+                  </div>
+                  <div class="form__section" data-step="2">
+                    <h2 class="form__title">Были ли визы за последние 3 года:</h2>
+                    <div class="form__row"><label class="radio"><input type="radio" name="visa" value="Да" checked="checked" />
+                        <div class="radio__fake-radio">Да</div>
+                      </label><label class="form__radio radio"><input type="radio" name="visa" value="Нет" />
+                        <div class="radio__fake-radio">Нет</div>
+                      </label></div>
+                  </div>
+                  <div class="form__section" data-step="3">
+                    <h2 class="form__title">Как срочно нужна виза:</h2>
+                    <div class="form__row"><label class="radio"><input type="radio" name="time" value="Срочно" checked="checked" />
+                        <div class="radio__fake-radio">Срочно (от 1 дня до 1 недели)</div>
+                      </label><label class="form__radio radio"><input type="radio" name="time" value="Не срочно" />
+                        <div class="radio__fake-radio">Не срочно (от 1 недели)</div>
+                      </label></div>
+                  </div>
+                  <div class="form__section" data-step="4">
+                    <h2 class="form__title">Количество человек:</h2>
+                    <div class="form__row">
+                      <filedset class="number" data-quantity="data-quantity"><button class="number__button" type="button" data-action="sub" disabled="disabled">-</button><button class="number__button" type="button" data-action="add">+</button><input class="number__input" type="number" min="1" max="10" value="1" pattern="[0-9]+" name="amount" /></filedset>
+                    </div>
+                  </div>
+                  <div class="form__section" data-step="5">
+                    <h2 class="form__title">Введите свои контактные данные и узнайте стоимость визы:</h2>
+                    <div class="form__list"><label class="form__field">
+                        <div class="form__label">Введите Имя</div><input class="input" type="text" name="name" placeholder="Иванов Иван" required="required" />
+                      </label><label class="form__field">
+                        <div class="form__label">Введите номер телефона</div><input class="input" type="tel" name="phone" placeholder="+7 (_____) ____-____-____" required="required" />
+                      </label><label class="form__field">
+                        <div class="form__label">Введите E-mail</div><input class="input" type="email" name="email" placeholder="example@mail.ru" required="required" />
+                      </label>
+                      <div class="form__small">Нажимая кнопку «Узнать стоимость», я подтверждаю, что я ознакомлен и согласен с условиями
+                        <a href="#">политики обработки персональных данных</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form__section" data-step="6">
+                    <h2 class="form__title">Ваша заявка отправлена</h2>
+                    <p class="form__descr">Мы свяжемся с вами в ближайшее время</p>
+                  </div>
+                </div>
+                <hr class="form__divider" />
+                <div class="form__footer"><button class="button button--secondary form__button" data-action="back" disabled="disabled">Назад</button><button class="button button--primary form__button" data-action="forward">Далее</button><button class="button button--primary form__button" data-action="submit" hidden="hidden">Узнать стоимость</button></div>
+              </form>
+              <div class="calculator__row">
+                <div class="calculator__item"><img class="calculator__icon" src="./img/icon__user.svg" alt="" />
+                  <h3 class="calculator__subtitle">Одно окно</h3>
+                  <p class="calculator__descr">Услуги страхования, бронирование билетов, фото/биометрии</p>
+                </div>
+                <div class="calculator__item"><img class="calculator__icon" src="./img/icon__shield.svg" alt="" />
+                  <h3 class="calculator__subtitle">Надежность</h3>
+                  <p class="calculator__descr">Оформим визу или вернем деньги</p>
+                </div>
+                <div class="calculator__item"><img class="calculator__icon" src="./img/icon__doc.svg" alt="" />
+                  <h3 class="calculator__subtitle">Безотказно</h3>
+                  <p class="calculator__descr">Более 450 решений для тех, кто ранее получил отказ</p>
+                </div>
+                <div class="calculator__item"><img class="calculator__icon" src="./img/icon__phone.svg" alt="" />
+                  <h3 class="calculator__subtitle">Без присутствия</h3>
+                  <p class="calculator__descr">Не нужно посещать несколько инстанций и стоять в очередях</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="page__footer">
+        <div class="footer">
+          <div class="container">
+            <div class="footer__inner">
+              <div class="footer__logo">
+                <div class="logo"><svg class="logo__image">
+                    <use href="./img/svgSprite.svg?v=1725704132849#logo__allvisa"></use>
+                  </svg></div>
+              </div>
+              <div class="footer__cols">
+                <div class="footer__copy">
+                  <div class="footer__line">ООО «ГК Бизнес Обеспечение»</div>
+                  <div class="footer__line">ИНН 7709995951</div>
+                  <div class="footer__line">ОГРН 1177746337922</div>
+                  <div class="footer__line">КПП 770901001</div>
+                  <div class="footer__line">© 2017 - 2024г. Визовый центр ALLVISA</div>
+                </div>
+                <div class="footer__info">
+                  <address class="footer__address">Адрес: Москва, ДЦ «Китай-город», Лубянский проезд, 27/1c1, офис 436</address><a class="footer__policy" href="#">Политика конфиденциальности</a>
+                </div>
+                <div class="footer__actions">
+                  <div class="footer__action">
+                    <div class="footer__label">Отдел по работе с клиентами</div><a class="footer__link" href="tel:88004444140">8 (800) 444-41-40</a>
+                  </div>
+                  <div class="footer__action">
+                    <div class="footer__label">Email</div><a class="footer__link" href="mailto:info@allvisa.center">info@allvisa.center</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><script src="./js/bundle.js"></script>
+  </body>
+</html>

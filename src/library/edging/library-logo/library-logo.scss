@@ -1,0 +1,10 @@
+@use "src/scss/breakpoints";
+
+.library-logo {
+  $block-name: &; // #{$block-name}__element
+
+  &__image {
+    width: 100%;
+    height: 100%;
+  }
+}

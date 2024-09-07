@@ -1,0 +1,85 @@
+@use "src/scss/breakpoints";
+@use "src/scss/functions/iterations";
+@use "src/scss/mixins/reset-button";
+@use "src/scss/mixins/reset-link";
+@use "src/scss/mixins/text-styles";
+
+.header {
+  $block-name: &; // #{$block-name}__element
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0 20px;
+    box-shadow: 0 1px 0 var(--border-light);
+  }
+
+  &__logo {
+    @include reset-button.reset-button;
+
+    width: 186px;
+    height: 68px;
+    cursor: pointer;
+    transition: iterations.iterate-transition([opacity, scale]);
+
+    @media (hover: hover) {
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+
+    &:active {
+      scale: 0.96;
+    }
+  }
+
+  &__action {
+    display: none;
+
+    @media screen and (min-width: breakpoints.$screen-t) {
+      display: grid;
+      gap: 4px;
+      justify-items: end;
+    }
+  }
+
+  &__phone {
+    @include reset-link.reset-link {
+      color: var(--front-invert);
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 1;
+    };
+
+    @media (hover: hover) {
+      &:hover {
+        color: var(--front-accent);
+      }
+    }
+  }
+
+  &__callback {
+    @include reset-link.reset-link {
+      color: var(--front-invert);
+      font-size: 16px;
+      line-height: 1;
+      text-decoration-line: underline;
+    };
+
+    @media (hover: hover) {
+      &:hover {
+        color: var(--front-accent);
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__burger {
+    @include reset-button.reset-button;
+
+    @media screen and (min-width: breakpoints.$screen-t) {
+      display: none;
+    }
+  }
+}

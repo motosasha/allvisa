@@ -1,0 +1,43 @@
+//- Все примеси в этом файле должны начинаться c имени блока (calculator)
+//- Упоминание имени блока в классах обязательно, без этого он не попадёт
+//- в сборку
+
+mixin calculator(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +calculator("some-mod")
+
+  //- список модификаторов
+  -
+    var allMods = "";
+    if (typeof (mods) !== "undefined" && mods) {
+      var modsList = mods.split(",");
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + " calculator--" + modsList[i].trim();
+      }
+    }
+
+  section.calculator(class=allMods)&attributes(attributes)
+    .container
+      .calculator__inner
+        h2.calculator__title Рассчитайте стоимость и максимальную длительность вашей визы
+        +form()(action="https://jsonplaceholder.typicode.com/todos/", id="calculatorForm", class="calculator__form", data-steps="1")
+        .calculator__row
+          .calculator__item
+            img.calculator__icon(src= path.img + "icon__user.svg", alt="")
+            h3.calculator__subtitle Одно окно
+            p.calculator__descr Услуги страхования, бронирование билетов, фото/биометрии
+          .calculator__item
+            img.calculator__icon(src= path.img + "icon__shield.svg", alt="")
+            h3.calculator__subtitle Надежность
+            p.calculator__descr Оформим визу или вернем деньги
+          .calculator__item
+            img.calculator__icon(src= path.img + "icon__doc.svg", alt="")
+            h3.calculator__subtitle Безотказно
+            p.calculator__descr Более 450 решений для тех, кто ранее получил отказ
+          .calculator__item
+            img.calculator__icon(src= path.img + "icon__phone.svg", alt="")
+            h3.calculator__subtitle Без присутствия
+            p.calculator__descr Не нужно посещать несколько инстанций и стоять в очередях

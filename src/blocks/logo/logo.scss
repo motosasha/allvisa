@@ -1,0 +1,15 @@
+@use "src/scss/breakpoints";
+@use "src/scss/mixins/text-styles";
+
+.logo {
+  $block-name: &; // #{$block-name}__element
+
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 186 / 68;
+
+  &__image {
+    width: 100%;
+    height: 100%;
+  }
+}

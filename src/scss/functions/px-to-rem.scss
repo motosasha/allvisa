@@ -1,0 +1,23 @@
+@use 'sass:math';
+
+/// Преобразует пиксели в ремы.
+///
+/// @param {number (unitless)} $pixels
+///   Размер в пикселях.
+/// @param {number (unitless)} $context
+///   Базовый размер шрифта, значение по-умолчанию — 16.
+/// @return {string} размер преобразованный в rem.
+
+$browser-context: 16;
+
+@function rem($pixels, $context: $browser-context) {
+  @if math.is-unitless($pixels) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if math.is-unitless($context) {
+    $context: $context * 1px;
+  }
+
+  @return  math.div($pixels, $context) * 1rem;
+}

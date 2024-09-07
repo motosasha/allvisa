@@ -1,0 +1,17 @@
+@mixin scroll-vertical($no-scroll-bar: false) {
+  overflow: hidden auto;
+  -webkit-overflow-scrolling: touch;
+
+  @if $no-scroll-bar {
+    scrollbar-width: none;
+  }
+}
+
+@mixin scroll-horizontal($no-scroll-bar: false) {
+  overflow: auto hidden;
+  -webkit-overflow-scrolling: touch;
+
+  @if $no-scroll-bar {
+    scrollbar-width: none;
+  }
+}

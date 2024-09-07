@@ -1,0 +1,7 @@
+@mixin reset-link($text-decoration: none) {
+  color: inherit;
+  text-decoration: $text-decoration;
+  outline: 0;
+  transition: color var(--transition-default);
+  @content;
+}

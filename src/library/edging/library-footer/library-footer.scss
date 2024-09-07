@@ -1,0 +1,24 @@
+@use "src/scss/breakpoints";
+@use "src/library/scss/mixins/library-text-styles";
+
+.library-footer {
+  $block-name: &; // #{$block-name}__element
+
+  border-top: 1px solid var(--lib-border-primary);
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    padding: 39px 0 40px;
+
+    @media screen and (min-width: breakpoints.$screen-tl) {
+      padding: 23px 0 32px;
+    }
+  }
+
+  &__copy {
+    @include library-text-styles.lib-caption(500);
+
+    color: var(--lib-front-tertiary);
+  }
+}

@@ -1,0 +1,43 @@
+@use "sass:list";
+
+/// Итерирует все свойства для плавной анимации состояний.
+///
+/// @param {array} $props
+///   Список свойств для плавной анимации.
+/// @param {string, CSS Variable} $time-easing
+///   Значения времени, типа и задержки анимации.
+/// @return {string} перечисление всех свойств со значениями.
+
+@function iterate-transition($props, $time-easing: var(--transition-default)) {
+  $transition: "";
+
+  @each $prop in $props {
+    @if $transition != "" {
+      $transition: #{$transition}, #{$prop} $time-easing;
+    } @else {
+      $transition: #{$prop} $time-easing;
+    }
+  }
+
+  @return $transition;
+}
+
+/// Итерирует все свойства с уникальной анимацией для каждого.
+///
+/// @param {object} $props
+///   Объект свойств и анимации.
+/// @return {string} перечисление всех свойств со значениями.
+
+@function iterate-transition-every($props) {
+  $transition: "";
+
+  @each $prop, $anim in $props {
+    @if $transition != "" {
+      $transition: #{$transition}, #{$prop} #{$anim};
+    } @else {
+      $transition: #{$prop} #{$anim};
+    }
+  }
+
+  @return $transition;
+}

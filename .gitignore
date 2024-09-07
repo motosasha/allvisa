@@ -1,0 +1,15 @@
+.idea/
+design/
+node_modules/
+temp/
+
+src/js/entry.js
+src/js/inlineHeadBundle.js
+src/json/
+src/scss/style.scss
+src/library/scss/library.scss
+src/templates/mixins.pug
+
+.DS_Store
+Thumbs.db
+.env

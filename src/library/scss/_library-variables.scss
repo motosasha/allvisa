@@ -1,0 +1,75 @@
+@use "sass:color";
+@use "src/scss/breakpoints";
+@use "src/library/scss/mixins/library-text-styles";
+
+:root {
+  // color primitives
+  --zinc-000: hsl(0deg 0% 98%);
+  --zinc-050: hsl(0deg 0% 98%);
+  --zinc-100: hsl(240deg 5% 96%);
+  --zinc-200: hsl(240deg 6% 90%);
+  --zinc-300: hsl(240deg 5% 84%);
+  --zinc-400: hsl(240deg 5% 65%);
+  --zinc-500: hsl(240deg 4% 46%);
+  --zinc-600: hsl(240deg 5% 34%);
+  --zinc-700: hsl(240deg 5% 26%);
+  --zinc-800: hsl(240deg 4% 16%);
+  --zinc-900: hsl(240deg 6% 10%);
+  --zinc-950: hsl(240deg 10% 4%);
+
+  --emerald-500: hsl(160deg 84% 39%);
+  --emerald-700: hsl(163deg 94% 24%);
+
+  --green-600: hsl(142deg 76% 36%);
+  --green-800: hsl(143deg 64% 24%);
+
+  // base
+  --lib-body-bg: var(--lib-back-primary);
+  --lib-body-color: var(--lib-front-primary);
+
+  // z-index
+  --lib-z-index-default: 1;
+  --lib-z-index-trigger: 2;
+
+  @media (prefers-color-scheme: light) {
+    & {
+      --lib-front-primary: var(--zinc-950);
+      --lib-front-secondary: var(--zinc-600);
+      --lib-front-tertiary: var(--zinc-400);
+      --lib-front-invert: var(--zinc-050); //?
+      --lib-front-brand: var(--green-600); //?
+
+      --lib-back-primary: var(--zinc-050);
+      --lib-back-secondary: var(--zinc-200);
+      --lib-back-tertiary: var(--zinc-300);
+      --lib-back-brand: var(--green-600); //?
+
+      --lib-border-primary: var(--zinc-300);
+
+      --lib-link-color: inherit;
+      --lib-link-color-hover: var(--green-600);
+      --lib-link-color-active: var(--green-800);
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    & {
+      --lib-front-primary: var(--zinc-050);
+      --lib-front-secondary: var(--zinc-400);
+      --lib-front-tertiary: var(--zinc-500);
+      --lib-front-invert: var(--zinc-900); //?
+      --lib-front-brand: var(--emerald-500); //?
+
+      --lib-back-primary: var(--zinc-900);
+      --lib-back-secondary: var(--zinc-800);
+      --lib-back-tertiary: var(--zinc-700);
+      --lib-back-brand: var(--emerald-500); //?
+
+      --lib-border-primary: var(--zinc-700);
+
+      --lib-link-color: inherit;
+      --lib-link-color-hover: var(--emerald-500);
+      --lib-link-color-active: var(--emerald-700);
+    }
+  }
+}

@@ -1,0 +1,102 @@
+@use "src/scss/breakpoints";
+@use "src/scss/mixins/reset-button";
+@use "src/scss/mixins/scroll";
+@use "src/library/scss/mixins/library-text-styles";
+
+.library-tabs {
+  $block-name: &; // #{$block-name}__element
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0 32px;
+
+  &__head {
+    position: relative;
+    display: flex;
+    gap: 16px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--lib-border-primary);
+  }
+
+  &__body {
+    position: relative;
+    display: grid;
+    grid-template-areas: "panel";
+    align-items: start;
+    max-height: calc(100% - 32px);
+    margin: 0 -32px;
+
+    &::before,
+    &::after {
+      position: absolute;
+      z-index: var(--lib-z-index-default);
+      width: calc(100% - 32px);
+      height: 32px;
+      content: "";
+    }
+
+    &::before {
+      top: 0;
+      background: linear-gradient(0deg, transparent, var(--lib-back-secondary) 75%);
+    }
+
+    &::after {
+      bottom: 0;
+      background: linear-gradient(180deg, transparent, var(--lib-back-secondary));
+    }
+  }
+
+  &__button {
+    @include reset-button.reset-button {
+      @include library-text-styles.lib-tabs-caption;
+
+      outline-width: 0;
+      outline-color: var(--lib-link-color-active);
+      cursor: pointer;
+      transition: all var(--transition-default);
+
+      @media (hover: hover) {
+        &:hover {
+          color: var(--lib-link-color-hover);
+        }
+
+        &:active {
+          color: var(--lib-link-color-active);
+        }
+
+        &:focus-visible {
+          outline-width: 4px;
+          outline-style: double;
+          outline-offset: 4px;
+        }
+      }
+
+      &[data-tab-button-state="active"] {
+        color: var(--lib-link-color-hover);
+        pointer-events: none;
+      }
+    };
+  }
+
+  &__panel {
+    @include scroll.scroll-vertical;
+
+    grid-area: panel;
+    height: 100%;
+    padding: 32px;
+    transform: translateY(8px);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity var(--transition-default), transform var(--transition-default), visibility var(--transition-default);
+    pointer-events: none;
+
+    &[data-tab-panel-state="active"] {
+      display: block;
+      transform: translateY(0);
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+}

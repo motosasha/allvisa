@@ -1,0 +1,33 @@
+//- Все примеси в этом файле должны начинаться c имени блока (header)
+//- Упоминание имени блока в классах обязательно, без этого он не попадёт
+//- в сборку
+
+mixin header(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +header("some-mod")
+
+  //- список модификаторов
+  -
+    var allMods = "";
+    if (typeof (mods) !== "undefined" && mods) {
+      var modsList = mods.split(",");
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + " header--" + modsList[i].trim();
+      }
+    }
+
+  .header(class=allMods)&attributes(attributes)
+    .container
+      .header__inner
+        button.header__logo
+          +logo
+        .header__action
+          a.header__phone(href="tel:88004444140") 8 (800) 444-41-40
+          a.header__callback(href="#") обратный звонок
+        button.header__burger
+          .burger
+            .burger__path
+        block

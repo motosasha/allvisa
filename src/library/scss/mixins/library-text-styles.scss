@@ -1,0 +1,42 @@
+@use "src/scss/breakpoints";
+
+@mixin lib-body($weight: 400) {
+  font-weight: $weight;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+}
+
+@mixin lib-heading-1 {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.25;
+  letter-spacing: -0.64px;
+}
+
+@mixin lib-heading-2 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.3334;
+  letter-spacing: -0.64px;
+}
+
+@mixin lib-caption($weight: 400) {
+  font-weight: $weight;
+  font-size: 12px;
+  line-height: 1;
+}
+
+@mixin lib-tabs-caption {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.3334;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+@mixin lib-links-title {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1;
+}
+

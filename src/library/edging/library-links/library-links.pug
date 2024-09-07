@@ -1,0 +1,28 @@
+//- Все примеси в этом файле должны начинаться c имени блока (library-links)
+//- Упоминание имени блока в классах обязательно, без этого он не попадёт
+//- в сборку
+
+mixin library-links(data, mods)
+
+  //- Принимает:
+  //-   data    {object} - данные
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +library-links(json.object, "some-mod")
+
+  //- список модификаторов
+  -
+    var allMods = "";
+    if (typeof (mods) !== "undefined" && mods) {
+      var modsList = mods.split(",");
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + " library-links--" + modsList[i].trim();
+      }
+    }
+
+  .library-links
+    each section in data
+      .library-links__section
+        a.link.library-links__title(href= section.href)!= section.title
+        each link in section.list
+          a.link.library-links__item(href= link.href)!= link.title

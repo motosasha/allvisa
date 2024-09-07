@@ -1,0 +1,91 @@
+//- Все примеси в этом файле должны начинаться c имени блока (form)
+//- Упоминание имени блока в классах обязательно, без этого он не попадёт
+//- в сборку
+
+mixin form(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +form("some-mod")
+
+  //- список модификаторов
+  -
+    var allMods = "";
+    if (typeof (mods) !== "undefined" && mods) {
+      var modsList = mods.split(",");
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + " form--" + modsList[i].trim();
+      }
+    }
+
+  form.form(class=allMods)&attributes(attributes)
+    .form__header
+      .form__point(data-state="active") 1
+      .form__point 2
+      .form__point 3
+      .form__point 4
+      .form__point 5
+      .form__bar
+    .form__inner
+      .form__section(data-step="1")
+        h2.form__title Выберите цель:
+        .form__row
+          label.radio
+            input(type="radio", name="target", value="Туризм", checked)
+            .radio__fake-radio Туризм
+          label.radio
+            input(type="radio", name="target", value="Обучение")
+            .radio__fake-radio Обучение
+          label.radio
+            input(type="radio", name="target", value="Бизнес")
+            .radio__fake-radio Бизнес
+          label.radio
+            input(type="radio", name="target", value="Медицина")
+            .radio__fake-radio Медицина
+      .form__section(data-step="2")
+        h2.form__title Были ли визы за последние 3 года:
+        .form__row
+          label.radio
+            input(type="radio", name="visa", value="Да", checked)
+            .radio__fake-radio Да
+          label.form__radio.radio
+            input(type="radio", name="visa", value="Нет")
+            .radio__fake-radio Нет
+      .form__section(data-step="3")
+        h2.form__title Как срочно нужна виза:
+        .form__row
+          label.radio
+            input(type="radio", name="time", value="Срочно", checked)
+            .radio__fake-radio Срочно (от 1 дня до 1 недели)
+          label.form__radio.radio
+            input(type="radio", name="time", value="Не срочно")
+            .radio__fake-radio Не срочно (от 1 недели)
+      .form__section(data-step="4")
+        h2.form__title Количество человек:
+        .form__row
+          +number("", 1, 10, 1)(name="amount")
+      .form__section(data-step="5")
+        h2.form__title Введите свои контактные данные и узнайте стоимость визы:
+        .form__list
+          label.form__field
+            .form__label Введите Имя
+            input.input(type="text", name="name", placeholder="Иванов Иван", required)
+          label.form__field
+            .form__label Введите номер телефона
+            input.input(type="tel", name="phone", placeholder="+7 (_____) ____-____-____", required)
+          label.form__field
+            .form__label Введите E-mail
+            input.input(type="email", name="email", placeholder="example@mail.ru", required)
+          .form__small.
+            Нажимая кнопку «Узнать стоимость», я подтверждаю, что я ознакомлен и согласен с условиями
+            #[a(href="#") политики обработки персональных данных]
+      .form__section(data-step="6")
+        h2.form__title Ваша заявка отправлена
+        p.form__descr Мы свяжемся с вами в ближайшее время
+    hr.form__divider
+    .form__footer
+      button.button.button--secondary.form__button(data-action="back", disabled) Назад
+      button.button.button--primary.form__button(data-action="forward") Далее
+      button.button.button--primary.form__button(data-action="submit", hidden) Узнать стоимость
+    block

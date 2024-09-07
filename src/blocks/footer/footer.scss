@@ -1,0 +1,139 @@
+@use "src/scss/breakpoints";
+@use "src/scss/mixins/reset-link";
+@use "src/scss/mixins/text-styles";
+
+.footer {
+  $block-name: &; // #{$block-name}__element
+
+  color: var(--front-invert);
+  background-image: var(--back-gradient);
+
+  &__inner {
+    display: grid;
+    gap: 32px;
+    padding: 16px 0;
+
+    @media screen and (min-width: breakpoints.$screen-ti) {
+      gap: 64px;
+      padding: 24px 0;
+    }
+
+    @media screen and (min-width: breakpoints.$screen-tl) {
+      gap: 32px;
+      padding: 50px 0;
+    }
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      display: flex;
+      gap: 120px;
+      justify-content: space-between;
+    }
+  }
+
+  &__logo {
+    width: 204px;
+    height: 82px;
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+    	grid-column: 1 / 4;
+    }
+  }
+
+  &__cols {
+    display: grid;
+    gap: 24px;
+
+    @media screen and (min-width: breakpoints.$screen-t) {
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    @media screen and (min-width: breakpoints.$screen-tl) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      display: flex;
+      gap: 0;
+      justify-content: space-between;
+      width: min(100%, 992px);
+    }
+  }
+
+  &__copy {
+    display: grid;
+    gap: 12px;
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      width: 255px;
+    }
+  }
+
+  &__line {
+    @include text-styles.footer-default;
+  }
+
+  &__info {
+    display: grid;
+    gap: 4px;
+    justify-items: start;
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      width: 240px;
+    }
+  }
+
+  &__address {
+    @include text-styles.footer-default(1.5);
+
+    font-style: normal;
+  }
+
+  &__policy {
+    @include text-styles.footer-default(1.5);
+
+    @include reset-link.reset-link {
+      text-decoration: underline;
+      transition: opacity var(--transition-default);
+    };
+
+    @media (hover: hover) {
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  &__actions {
+    display: grid;
+    gap: 24px;
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      width: 200px;
+    }
+  }
+
+  &__action {
+    display: grid;
+    gap: 4px;
+    justify-items: start;
+  }
+
+  &__label {
+    @include text-styles.footer-default;
+  }
+
+  &__link {
+    @include reset-link.reset-link;
+    @include text-styles.footer-link(1, 700);
+
+    transition: opacity var(--transition-default);
+
+    @media (hover: hover) {
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+}

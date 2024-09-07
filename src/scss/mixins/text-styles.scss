@@ -1,0 +1,128 @@
+@use "src/scss/breakpoints";
+
+@mixin body($weight: 400) {
+  font-weight: $weight;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+}
+
+@mixin footer-default($line-height: 1, $weight: 400) {
+  font-weight: $weight;
+  font-size: 16px;
+  line-height: $line-height;
+}
+
+@mixin footer-link($line-height: 1, $weight: 400) {
+  font-weight: $weight;
+  font-size: 24px;
+  line-height: $line-height;
+}
+
+@mixin hero-title {
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1;
+  @content;
+
+  @media screen and (min-width: breakpoints.$screen-t) {
+    font-size: 64px;
+  }
+
+  @media screen and (min-width: breakpoints.$screen-dl) {
+    font-size: 104px;
+  }
+}
+
+@mixin hero-description {
+  font-size: 21px;
+  line-height: 1.2858;
+  @content;
+
+  @media screen and (min-width: breakpoints.$screen-t) {
+    font-size: 24px;
+  }
+
+  @media screen and (min-width: breakpoints.$screen-dl) {
+    font-size: 28px;
+  }
+}
+
+@mixin calculator-title {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1;
+  @content;
+
+  @media screen and (min-width: breakpoints.$screen-tl) {
+    font-size: 56px;
+  }
+}
+
+@mixin calculator-subtitle {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: 0.24px;
+  @content;
+
+  @media screen and (min-width: breakpoints.$screen-tl) {
+    font-size: 28px;
+  }
+}
+
+@mixin calculator-description {
+  font-size: 18px;
+  line-height: 1;
+  @content;
+
+  @media screen and (min-width: breakpoints.$screen-tl) {
+    font-size: 24px;
+  }
+}
+
+@mixin form-point {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1;
+}
+
+@mixin form-title {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1;
+  @content;
+
+  @media screen and (min-width: breakpoints.$screen-ti) {
+    font-size: 36px;
+  }
+}
+
+@mixin form-small {
+  font-size: 16px;
+  line-height: 1.125;
+  @content;
+
+  @media screen and (min-width: breakpoints.$screen-ti) {
+    font-size: 18px;
+  }
+}
+
+@mixin button-title {
+  font-size: 18px;
+  line-height: 1;
+
+  @media screen and (min-width: breakpoints.$screen-ti) {
+    font-size: 24px;
+  }
+}
+
+@mixin input {
+  font-size: 18px;
+  line-height: 1.2778;
+  @content;
+
+  @media screen and (min-width: breakpoints.$screen-ti) {
+    font-size: 28px;
+    line-height: 1.2858;
+  }
+}

@@ -1,0 +1,21 @@
+@mixin focus-set-default($focus-width: 1px) {
+  // stylelint-disable
+  &:focus-visible {
+    outline-width: $focus-width;
+    outline-style: solid;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline-width: 0;
+  }
+
+  &:focus:not(:-moz-focusring) {
+    outline-width: 0;
+  }
+
+  &::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+  }
+  // stylelint-enable
+}

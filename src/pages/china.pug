@@ -1,0 +1,25 @@
+extends ../templates/template__default.pug
+
+block variables
+  -
+    isMainPage = false
+    pageTitle = "Китай"
+    metaDescription = "description"
+    metaKeywords = "keywords"
+
+block content
+  section.hero
+    .container
+      .hero__inner
+        .hero__block
+          h1.hero__title.hero__title--china Аккредитованный визовый центр Китая.<br>Ежедневная подача от 10 000 рублей
+          p.hero__descr.
+            При заключении договора, мы начислим #[strong 500 баллов,] которые можно будет использовать при следующих
+            обращениях. Кешбек от #[strong 2% до 10%]
+    img.hero__ring.hero__ring--left(src= path.img + "img__ring.svg", alt="")
+    img.hero__ring.hero__ring--right(src= path.img + "img__ring.svg", alt="")
+    picture.hero__bg
+      source(srcset= path.img + "img__china--desktop.jpg", media="(min-width: 992px)")
+      img(src= path.img + "img__china--mobile.jpg", alt="")
+
+  +calculator

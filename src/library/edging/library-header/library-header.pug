@@ -1,0 +1,38 @@
+//- Все примеси в этом файле должны начинаться c имени блока (library-header)
+//- Упоминание имени блока в классах обязательно, без этого он не попадёт
+//- в сборку
+
+mixin library-header(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +library-header("some-mod")
+
+  //- список модификаторов
+  -
+    var allMods = "";
+    if (typeof (mods) !== "undefined" && mods) {
+      var modsList = mods.split(",");
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + " library-header--" + modsList[i].trim();
+      }
+    }
+
+  header.library-header(class=allMods)&attributes(attributes)
+    .library-header__inner
+      .library-header__top
+        button.library-logo.library-header__logo
+          svg.library-logo__image
+            use(href= path.icon + "logo__builder")
+        .library-header__divider
+        .library-header__descr #[strong Gulp-сборщик] с библиотекой блоков
+      .library-header__bottom
+        .library-tabs
+          .library-tabs__head
+            button.library-tabs__button(data-tab-button="blocks", data-tab-button-state="active") Блоки
+            button.library-tabs__button(data-tab-button="docs") Документация
+          .library-tabs__body
+            .library-tabs__panel(data-tab-panel="blocks", data-tab-panel-state="active")
+              +library-links(json.library.links)
+            .library-tabs__panel(data-tab-panel="docs") coming soon

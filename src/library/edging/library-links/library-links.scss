@@ -1,0 +1,42 @@
+@use "src/scss/breakpoints";
+@use "src/scss/mixins/reset-link";
+@use "src/library/scss/mixins/library-text-styles";
+
+.library-links {
+  $block-name: &; // #{$block-name}__element
+
+  display: grid;
+  gap: 32px;
+
+  &__section {
+    @include reset-link.reset-link;
+
+    display: grid;
+    gap: 8px;
+    justify-items: start;
+  }
+
+  &__title {
+    // stylelint-disable
+    --link-color: var(--lib-front-tertiary);
+    --link-color-visited: var(--lib-front-tertiary);
+    --link-color-hover: var(--lib-front-primary);
+    --link-color-active: var(--lib-link-color-active);
+    --link-outline-color: var(--lib-link-color-active);
+    // stylelint-enable
+
+    @include library-text-styles.lib-links-title;
+
+    margin-bottom: 8px;
+  }
+
+  &__item {
+    // stylelint-disable
+    --link-color: var(--lib-front-primary);
+    --link-color-visited: var(--lib-front-primary);
+    --link-color-hover: var(--lib-link-color-hover);
+    --link-color-active: var(--lib-link-color-active);
+    --link-outline-color: var(--lib-link-color-active);
+    // stylelint-enable
+  }
+}
