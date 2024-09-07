@@ -1,5 +1,9 @@
 "use strict";
 
+let userName = `motosasha`;
+let projectName = `allvisa`;
+let ghPagesUrl = `https://${userName}.github.io/${projectName}/index.html`;
+
 let pathToPrefix = ``;
 
 const htmlPathObj = {

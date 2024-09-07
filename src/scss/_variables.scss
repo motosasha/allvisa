@@ -54,6 +54,7 @@
   --back-primary: var(--neutral-000);
   --back-secondary: var(--neutral-200);
   --back-tertiary: var(--neutral-300);
+  --back-dark: var(--neutral-800);
   --back-accent: var(--green);
   --back-accent-light: var(--green-light);
   --back-gradient: linear-gradient(90deg, #24348b 0, #2f7d58 50%, #5eb12e 100%);
@@ -77,8 +78,9 @@
   // z-index
   --z-index-negative: -1;
   --z-index-default: 1;
-  --z-index-hero-text: 2;
-  --z-index-header: 3;
+  --z-index-ring: 2;
+  --z-index-hero-text: 4;
+  --z-index-header: 5;
   --z-index-noscript: 99;
 
   // layout
