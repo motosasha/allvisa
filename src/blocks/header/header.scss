@@ -75,11 +75,16 @@
     }
   }
 
-  &__burger {
-    @include reset-button.reset-button;
+  &__call {
+    padding: 4px;
 
     @media screen and (min-width: breakpoints.$screen-t) {
       display: none;
     }
+  }
+
+  &__icon {
+    width: 32px;
+    height: 32px;
   }
 }
